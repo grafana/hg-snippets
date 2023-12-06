@@ -8,7 +8,6 @@ import (
 	"runtime"
 
 	"github.com/BurntSushi/toml"
-	"github.com/pkg/errors"
 )
 
 // Conf is global config variable
@@ -99,10 +98,6 @@ func (cfg *Config) Load(file string) error {
 
 	snippetsFilePath, _ := GetGithubSnippetsFilePath()
 	cfg.General.SnippetFile = snippetsFilePath
-	_, err = os.Create(cfg.General.SnippetFile)
-	if err != nil {
-		return errors.Wrap(err, "Failed to create a config file")
-	}
 
 	cfg.General.Editor = os.Getenv("EDITOR")
 	if cfg.General.Editor == "" && runtime.GOOS != "windows" {
