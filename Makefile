@@ -19,3 +19,7 @@ test:
 
 vet:
 	go vet
+
+setup:
+	./setup.sh
+	go build -o grappet $<
