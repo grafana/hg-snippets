@@ -18,6 +18,7 @@ func sync(cmd *cobra.Command, args []string) (err error) {
 	return petSync.AutoSync(config.Conf.General.SnippetFile)
 }
 
+// TODO figure out how we want to use the sync command. Only for Gists?
 func init() {
-	RootCmd.AddCommand(syncCmd)
+	//RootCmd.AddCommand(syncCmd)
 }
