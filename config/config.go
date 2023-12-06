@@ -96,8 +96,7 @@ func (cfg *Config) Load(file string) error {
 		return err
 	}
 
-	snippetsFilePath, _ := GetGithubSnippetsFilePath()
-	cfg.General.SnippetFile = snippetsFilePath
+	cfg.General.SnippetFile = GetGithubSnippetsFilePath()
 
 	cfg.General.Editor = os.Getenv("EDITOR")
 	if cfg.General.Editor == "" && runtime.GOOS != "windows" {
@@ -121,15 +120,13 @@ func (cfg *Config) Load(file string) error {
 	return toml.NewEncoder(f).Encode(cfg)
 }
 
-func GetGithubSnippetsFilePath() (string, error) {
+func GetGithubSnippetsFilePath() string {
 	// assuming this command was run in the hg-snippets dir. This should only happen once - on setup
 	wd, err := os.Getwd()
 	if err != nil {
-		return "", err
+		panic(err)
 	}
-	snippetsPath := filepath.Join(wd, "hg-snippets-config", "snippet.toml")
-
-	return snippetsPath, nil
+	return filepath.Join(wd, "hg-snippets-config", "snippet.toml")
 }
 
 // GetDefaultConfigDir returns the default config directory
