@@ -9,7 +9,7 @@ dep:
 	go mod download
 
 build: main.go
-	go build -o pet $<
+	go build -o grappet $<
 
 install: main.go
 	go install
