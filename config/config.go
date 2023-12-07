@@ -8,7 +8,6 @@ import (
 	"runtime"
 
 	"github.com/BurntSushi/toml"
-	"github.com/pkg/errors"
 )
 
 // Conf is global config variable
@@ -97,15 +96,7 @@ func (cfg *Config) Load(file string) error {
 		return err
 	}
 
-	dir, err := GetDefaultConfigDir()
-	if err != nil {
-		return errors.Wrap(err, "Failed to get the default config directory")
-	}
-	cfg.General.SnippetFile = filepath.Join(dir, "snippet.toml")
-	_, err = os.Create(cfg.General.SnippetFile)
-	if err != nil {
-		return errors.Wrap(err, "Failed to create a config file")
-	}
+	cfg.General.SnippetFile = GetGithubSnippetsFilePath()
 
 	cfg.General.Editor = os.Getenv("EDITOR")
 	if cfg.General.Editor == "" && runtime.GOOS != "windows" {
@@ -115,16 +106,27 @@ func (cfg *Config) Load(file string) error {
 			cfg.General.Editor = "vim"
 		}
 	}
+
+	// setup default config for hosted grafana - this shouldn't need to be changed by the user besides the access token
 	cfg.General.Column = 40
 	cfg.General.SelectCmd = "fzf --reverse --ansi"
-	cfg.General.Backend = "gist"
+	cfg.General.Backend = "github"
 
-	cfg.Gist.FileName = "pet-snippet.toml"
-
-	cfg.GitLab.FileName = "pet-snippet.toml"
-	cfg.GitLab.Visibility = "private"
+	cfg.GitHub.FileName = "snippet.toml"
+	cfg.GitHub.AccessToken = "YOUR-ACCESS-TOKEN"
+	cfg.GitHub.RepoOwner = "grafana"
+	cfg.GitHub.RepoName = "hg-snippets-config"
 
 	return toml.NewEncoder(f).Encode(cfg)
+}
+
+func GetGithubSnippetsFilePath() string {
+	// assuming this command was run in the hg-snippets dir. This should only happen once - on setup
+	wd, err := os.Getwd()
+	if err != nil {
+		panic(err)
+	}
+	return filepath.Join(wd, "hg-snippets-config", "snippet.toml")
 }
 
 // GetDefaultConfigDir returns the default config directory
