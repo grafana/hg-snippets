@@ -13,7 +13,7 @@ var lookupCmd = &cobra.Command{
 	Use:     "lookup",
 	Short:   "Look up a snippet by description, or a description for a snippet.",
 	Long:    "Look up a snippet by description or the reverse. \nIf you provide a description, lookup returns the first example for that snippet. \nThis command is primarily used by this CLI's own fuzzy search tool and may be flaky otherwise.",
-	Example: "$pet lookup '[get instance details]'\n$pet lookup '$my-command'",
+	Example: "grappet lookup '[get instance details]'\ngrappet lookup '$my-command'",
 	RunE:    lookup,
 }
 

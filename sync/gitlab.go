@@ -31,7 +31,7 @@ func NewGitLabClient() (Client, error) {
 	if err != nil {
 		return nil, fmt.Errorf(`access_token is empty.
 Go https://gitlab.com/profile/personal_access_tokens and create access_token.
-Write access_token in config file (pet configure) or export $%v.
+Write access_token in config file (grappet configure) or export $%v.
 		`, gitlabTokenEnvVariable)
 	}
 
