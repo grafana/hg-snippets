@@ -12,7 +12,12 @@ build: main.go
 	go build -o grappet $<
 
 install: main.go
-	go install
+	go build -o grappet $<
+	if [ -z "$(GOPATH)" ]; then \
+		cp grappet ${HOME}/go/bin; \
+	else \
+		cp grappet ${GOPATH}/bin/; \
+	fi; 
 
 test:
 	go test ./...
