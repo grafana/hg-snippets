@@ -2,10 +2,12 @@
 *.o
 *.a
 *.so
+grappet
 
 # Folders
 _obj
 _test
+hg-snippets-config
 
 # Architecture specific extensions/prefixes
 *.[568vq]
