@@ -3,8 +3,8 @@ package cmd
 import (
 	"os"
 
-	"github.com/knqyf263/pet/config"
-	petSync "github.com/knqyf263/pet/sync"
+	"github.com/grafana/hg-snippets/config"
+	petSync "github.com/grafana/hg-snippets/sync"
 	"github.com/spf13/cobra"
 )
 

@@ -1,4 +1,4 @@
-module github.com/knqyf263/pet
+module github.com/grafana/hg-snippets
 
 go 1.20
 

@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/fatih/color"
-	"github.com/knqyf263/pet/config"
+	"github.com/grafana/hg-snippets/config"
 	"github.com/spf13/cobra"
 	"gopkg.in/alessio/shellescape.v1"
 )

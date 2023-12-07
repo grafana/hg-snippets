@@ -10,9 +10,9 @@ import (
 	"strings"
 
 	"github.com/fatih/color"
-	"github.com/knqyf263/pet/config"
-	"github.com/knqyf263/pet/dialog"
-	"github.com/knqyf263/pet/snippet"
+	"github.com/grafana/hg-snippets/config"
+	"github.com/grafana/hg-snippets/dialog"
+	"github.com/grafana/hg-snippets/snippet"
 )
 
 func editFile(command, file string) error {
@@ -23,7 +23,7 @@ func editFile(command, file string) error {
 func run(command string, r io.Reader, w io.Writer) error {
 	// if you use fzf, you get a nice little helper that shows you some extra details for the command you have selected
 	if strings.HasPrefix(command, "fzf") {
-		command = fmt.Sprintf("%s --preview 'pet lookup {}' --preview-window=down,3,wrap", command)
+		command = fmt.Sprintf("%s --preview 'grappet lookup {}' --preview-window=down,3,wrap", command)
 	}
 
 	var cmd *exec.Cmd

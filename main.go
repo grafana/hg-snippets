@@ -14,7 +14,7 @@
 
 package main
 
-import "github.com/knqyf263/pet/cmd"
+import "github.com/grafana/hg-snippets/cmd"
 
 func main() {
 	cmd.Execute()

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/knqyf263/pet/snippet"
+	"github.com/grafana/hg-snippets/snippet"
 	"github.com/spf13/cobra"
 )
 

@@ -25,7 +25,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/knqyf263/pet/config"
+	"github.com/grafana/hg-snippets/config"
 	"github.com/spf13/cobra"
 )
 
@@ -36,9 +36,9 @@ var (
 
 // RootCmd represents the base command when called without any subcommands
 var RootCmd = &cobra.Command{
-	Use:           "pet",
+	Use:           "grappet",
 	Short:         "Simple command-line snippet manager.",
-	Long:          `pet - Simple command-line snippet manager.`,
+	Long:          `grappet - Simple command-line snippet manager for hosted grafana with snippet sharing.`,
 	SilenceErrors: true,
 	SilenceUsage:  true,
 }

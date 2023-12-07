@@ -2,10 +2,12 @@
 *.o
 *.a
 *.so
+grappet
 
 # Folders
 _obj
 _test
+hg-snippets-config
 
 # Architecture specific extensions/prefixes
 *.[568vq]
@@ -33,3 +35,6 @@ pkg
 vendor/
 pet
 dist/
+
+# Config repo
+hg-snippets-config/

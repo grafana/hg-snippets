@@ -12,9 +12,9 @@ import (
 
 	"github.com/chzyer/readline"
 	"github.com/fatih/color"
-	"github.com/knqyf263/pet/config"
-	"github.com/knqyf263/pet/snippet"
-	petSync "github.com/knqyf263/pet/sync"
+	"github.com/grafana/hg-snippets/config"
+	"github.com/grafana/hg-snippets/snippet"
+	petSync "github.com/grafana/hg-snippets/sync"
 	"github.com/spf13/cobra"
 )
 

@@ -4,9 +4,10 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	"github.com/knqyf263/pet/config"
 	"os"
 	"time"
+
+	"github.com/grafana/hg-snippets/config"
 
 	"github.com/briandowns/spinner"
 	"github.com/google/go-github/github"

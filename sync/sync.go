@@ -5,8 +5,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/knqyf263/pet/config"
-	"github.com/knqyf263/pet/snippet"
+	"github.com/grafana/hg-snippets/config"
+	"github.com/grafana/hg-snippets/snippet"
 	"github.com/pkg/errors"
 )
 

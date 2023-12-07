@@ -8,7 +8,7 @@ import (
 	"sort"
 
 	"github.com/BurntSushi/toml"
-	"github.com/knqyf263/pet/config"
+	"github.com/grafana/hg-snippets/config"
 )
 
 type Snippets struct {
