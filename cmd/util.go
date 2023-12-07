@@ -21,6 +21,11 @@ func editFile(command, file string) error {
 }
 
 func run(command string, r io.Reader, w io.Writer) error {
+	// if you use fzf, you get a nice little helper that shows you some extra details for the command you have selected
+	if strings.HasPrefix(command, "fzf") {
+		command = fmt.Sprintf("%s --preview 'pet lookup {}' --preview-window=down,3,wrap", command)
+	}
+
 	var cmd *exec.Cmd
 	if len(config.Conf.General.Cmd) > 0 {
 		line := append(config.Conf.General.Cmd, command)
